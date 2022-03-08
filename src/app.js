@@ -10,6 +10,6 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/persons', router)
 
-app.listen(process.env.APP_PORT || 3002, () => {
-    console.log(`- [APP] - Running in http://${process.env.APP_HOST}:${process.env.APP_PORT}`)
+app.listen(process.env.PORT || 3002, () => {
+    console.log(`- [APP] - Running in http://${process.env.APP_HOST}:${process.env.PORT}`)
 })
