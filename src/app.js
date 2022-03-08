@@ -1,10 +1,12 @@
 import 'dotenv/config'
 import express from 'express'
 import router from './routes/person.js'
+import cors from 'cors'
 
 const app = express()
 
 app.get('/', (req,res) => res.json({ server: 'OK'}))
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
