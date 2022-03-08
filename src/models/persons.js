@@ -6,7 +6,10 @@ const Person = new Schema({
   name:  String,
   lastName: String,
   email: String,
-  password: String, 
+  password: {
+    type: String,
+    select: false
+  }, 
   cpf: String,
   dateAt: { type: Date, default: Date.now },
 })

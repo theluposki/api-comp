@@ -1,19 +1,10 @@
-import { logError } from "../util/coloredLog.js";
-import Persons from "../models/persons.js";
-
-const body = {
-  name: "Lucas",
-  lastName: "Pereira de Oliveira",
-  email: "theluposki@gmail.com",
-  password: "123456789456",
-  cpf: "12345678998",
-};
+import PersonsRepository from "../repositories/persons.js";
 
 const personCreate = async (req, res) => {
   try {
-    const result = await Persons.create(req.body);
+    const result = await PersonsRepository.create(req.body);
 
-    res.json(result);
+    res.status(201).json(result);
   } catch (error) {
     res
       .status(400)
@@ -21,9 +12,10 @@ const personCreate = async (req, res) => {
   }
 };
 
-const personsGET = async (req, res, next) => {
+const personsGET = async (req, res) => {
   try {
-    const result = await Persons.find({});
+    const result = await PersonsRepository.getAll();
+
     res.status(200).json(result);
   } catch (error) {
     res
@@ -32,9 +24,41 @@ const personsGET = async (req, res, next) => {
   }
 };
 
-const personDeleteOne = async (req, res) => {
+const personsGETOne = async (req,res) => {
+  const id = req.params.id
+
   try {
-    const result = await Persons.deleteOne({ _id: req.params.id });
+    const result = await PersonsRepository.getOne(id);
+
+    res.status(200).json(result);
+  } catch (error) {
+    res
+      .status(400)
+      .json({ error: "- [APP] - [personsGETOne] Error ao buscar pessoa. !" });
+  }
+};
+
+const personsUpdateOne = async (req,res) => {
+  const id = req.params.id
+  const body = req.body
+
+  try {
+    const result = await PersonsRepository.updatedOne(id, body);
+
+    res.status(200).json(result);
+  } catch (error) {
+    res
+      .status(400)
+      .json({ error: "- [APP] - [personsUpdateOne] Error ao atualizar pessoa. !" });
+  }
+};
+
+const personDeleteOne = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const result = await PersonsRepository.deleteOne(id);
+
     res.status(200).json(result);
   } catch (error) {
     res
@@ -43,4 +67,4 @@ const personDeleteOne = async (req, res) => {
   }
 };
 
-export { personCreate, personsGET, personDeleteOne};
+export { personCreate, personsGET, personsGETOne, personsUpdateOne, personDeleteOne };
