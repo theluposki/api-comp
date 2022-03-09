@@ -22,6 +22,10 @@ const Person = new Schema({
     select: false,
   },
   cpf: String,
+  rules: {
+    type: Array,
+    default: ['user']
+  },
   dateAt: { type: Date, default: Date.now },
 });
 

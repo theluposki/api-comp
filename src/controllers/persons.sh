@@ -1,7 +1,7 @@
 # [C] Create Person
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{  "name": "Eva","lastName": "Elfie","email": "eva@gmail.com","password": "123456789456","cpf": "58963245698"}' \
+  --data '{  "name": "Jessie","lastName": "Rogers","email": "jess@gmail.com","password": "123456789456","cpf": "58963245698"}' \
   http://localhost:3002/persons | json_pp
 
 # [R] List Persons
