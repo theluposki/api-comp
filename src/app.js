@@ -12,8 +12,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/persons', persons)
-app.use('/auth', auth)
+
+app.use(auth)
+app.use(persons)
 
 app.listen(process.env.PORT || 3002, () => {
     console.log(`- [APP] - Running in http://${process.env.APP_HOST}:${process.env.PORT}`)
