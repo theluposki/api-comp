@@ -21,6 +21,13 @@ const Person = new Schema({
     required: true,
     select: false,
   },
+  cel: {
+    type: String,
+    required: true
+  },
+  telephone: {
+    type: String,
+  },
   cpf: String,
   rules: {
     type: Array,
