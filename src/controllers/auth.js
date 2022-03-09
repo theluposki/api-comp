@@ -5,7 +5,10 @@ const Auth = async (req, res) => {
   
     try {
       const result = await AuthRepository.Authenticate(body);
-  
+        
+      if(result === 'Usuário não encontrado!'){
+          res.status(404).json(result)
+      }
       res.status(200).json(result);
     } catch (error) {
       res
