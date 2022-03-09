@@ -13,7 +13,7 @@ const AuthRepository = {
     }
 
     if (!(await bcrypt.compare(password, user.password))) {
-      return "Senha inválida!.";
+      return "Usuário ou Senha inválida!.";
     }
     let token = await generateToken(user.id)
 
