@@ -1,0 +1,11 @@
+{
+  "name": " [required] /Tomas/",
+  "lastName": "[required] /Shelb/",
+  "nickname": "[required] /niName/ [unique]",
+  "email": "[required] /mail@mail.com/ [unique]",
+  "password": "[required] /123456789/ [select]",
+  "cel": "[required] /1159261234/",
+  "telephone": "/11912345678/",
+  "cpf": "[required] /123456789123/ [unique]",
+  "rules": ["[default] user"]
+}
