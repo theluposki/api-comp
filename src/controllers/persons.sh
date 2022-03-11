@@ -5,15 +5,15 @@ curl --header "Content-Type: application/json" \
   http://localhost:3002/persons | json_pp
 
 # [R] List Persons
-curl http://localhost:3002/persons | json_pp
+curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" http://localhost:3002/persons | json_pp
 ### Busca por id
-curl http://localhost:3002/persons/6227af302106eb5d1f201ff6 | json_pp
+curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" http://localhost:3002/persons/6227af302106eb5d1f201ff6 | json_pp
 
 # [U] Atualizar Usuário
-curl --header "Content-Type: application/json" \
+curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" \
   --request PUT \
   --data '{"name": "Lucas","lastName":"Oliveira", "email": "lu@gmail.com"}' \
   http://localhost:3002/persons/622a44c96b23143d03d2b6e6 | json_pp
 
 # [D] Delete Person
-curl -X DELETE  http://localhost:3002/persons/62253c0fa15e469cd19b38e8 | json_pp
+curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" -X DELETE  http://localhost:3002/persons/62253c0fa15e469cd19b38e8 | json_pp

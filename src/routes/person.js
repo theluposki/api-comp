@@ -1,5 +1,5 @@
 import express from 'express'
-
+import auth from '../middlewares/auth.js'
 const router = express.Router()
 
 import {
@@ -10,10 +10,10 @@ import {
   personDeleteOne,
 } from "../controllers/persons.js";
 
-router.get("/persons", personsGET);
-router.get("/persons/:id", personsGETOne);
+router.get("/persons", auth, personsGET);
+router.get("/persons/:id", auth, personsGETOne);
 router.post("/persons", personCreate);
-router.put("/persons/:id", personsUpdateOne);
-router.delete("/persons/:id", personDeleteOne);
+router.put("/persons/:id", auth, personsUpdateOne);
+router.delete("/persons/:id", auth, personDeleteOne);
 
 export default router
