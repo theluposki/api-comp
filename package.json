@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js --experimental-vm-modules",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,8 @@
     "mongoose": "^6.2.4"
   },
   "devDependencies": {
+    "jest": "^27.5.1",
+    "node-fetch": "^3.2.3",
     "nodemon": "^2.0.15"
   }
 }

@@ -8,5 +8,16 @@
   "cel": "[required] /1159261234/",
   "telephone": "/11912345678/",
   "cpf": "[required] /123456789123/ [unique]",
-  "rules": ["[default] user"]
+  "rules": ["[default] user"],
+
+  "exemple": {
+    "name": "Tomas",
+    "lastName": "Shelb",
+    "nickname": "tommy",
+    "email": "tomy@mail.com",
+    "password": "123456789",
+    "cel": "1159261234",
+    "telephone": "11912345678",
+    "cpf": "156456789123"
+  }
 }
